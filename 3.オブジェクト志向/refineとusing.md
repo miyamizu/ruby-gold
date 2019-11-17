@@ -1,5 +1,9 @@
 ## using
 
+### 参考文献
+[Refinementについてグダグダ](https://qiita.com/yustoris/items/77fd309178dcdd13b5cd)
+[refine](https://docs.ruby-lang.org/ja/2.1.0/method/Module/i/refine.html)
+
 ### 基礎問題20
 - refineで再定義したメソッドを有効にするには、usingを使う
 ```

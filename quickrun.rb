@@ -1,6 +1,7 @@
-require 'open-uri'
+X = "abc"
 
-open("http://docs.ruby-lang.org/ja/2.1.0/doc/index.html") do |f|
-	print f.read
+def m
+  X.concat('def')
 end
 
+p m
