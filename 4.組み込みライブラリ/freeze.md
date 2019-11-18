@@ -3,6 +3,12 @@
 ### 参考文献
 - [freeze](http://ref.xaio.jp/ruby/classes/object/freeze)
 
+### freezeの仕様
+- cloneはfreeze,taint,特異メソッドなどの情報も含めた完全な複製を作成する。
+- dupはオブジェクトおよびtaint情報を含めた複製を返す。
+- クラスだけでなく、モジュールもfreezeできる。
+- モジュールをインクルードしたクラスをfreezeすることもできる。
+
 ### 凍結した後に破壊的なメソッドを呼び出すと
 - 例外が発生する
 ```
@@ -32,3 +38,13 @@ cat.freeze
 puts cat.name.replace("Piko") #=> Piko
 puts cat.name #=> Piko
 ```
+
+- 以下の書き方はOK
+- concatはだめ
+```
+array = [1, 2, 3].freeze
+array += [4, 5]
+p array
+
+```
+

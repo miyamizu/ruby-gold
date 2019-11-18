@@ -1,6 +1,9 @@
+### 問題
+- 模擬試験14
+
 ## inclede
 - incledeはモジュールをクラスにMix-inする
-- モジュールがスーパークラスとの間に入る。
+- モジュールがスーパークラスとの間に入る。(モジュールのメソッドを先に見に行くようになる)
 ```
 module M
   def foo
@@ -33,3 +36,39 @@ end
 
 p Cls2.ancestors
 ```
+- prependで呼び出されたモジュール内でsuperを呼び出すと、元から定義されていたメソッドが呼び出される。
+```
+module Mod
+  def foo
+    puts "Mod"
+    super
+  end
+end
+
+class Cls1
+  def foo
+    puts "Cls1"
+  end
+end
+class Cls2 < Cls1
+  prepend Mod
+end
+Cls2.new.foo #=> Mod Cls1
+```
+
+## extend
+- モジュール内のメソッドをクラスメソッドとして取り込む
+```
+module M
+  def hoge
+    puts "hoge"
+  end
+end
+
+class A
+  extend M
+end
+
+A.hoge #=> hoge
+```
+

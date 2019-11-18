@@ -20,3 +20,15 @@ lambda {|x| puts x }
 ```
 ->(x, y) { puts x, y }
 ```
+
+
+### 実行の仕方
+- lambda式はcallで実行する
+```
+tag = ->(t, msg){
+  print "<#{t}>#{ msg}</#{ t}>"
+}
+tag. call(:p,"Hello,World")
+
+#=> <p>Hello,World</p>
+```
