@@ -1,9 +1,19 @@
+## モジュールとは
+
+- モジュールはクラスと同じようにインスタンスは生成できない
+- Mix-in すると、定数やメソッドなどをクラスに追加することができる。
+- モジュールの定義内にクラスも定義できる
+- モジュールを Mix-in する場合 inclede を使用する
+
 ### 問題
-- 模擬試験14
+
+- 模擬試験 14
 
 ## inclede
-- incledeはモジュールをクラスにMix-inする
+
+- inclede はモジュールをクラスに Mix-in する
 - モジュールがスーパークラスとの間に入る。(モジュールのメソッドを先に見に行くようになる)
+
 ```
 module M
   def foo
@@ -19,9 +29,11 @@ p C.new.foo # => C
 ```
 
 ## prepend
-- ruby2.0で追加された
-- prependされたモジュールはprependした対象のクラスより先にメソッドの探索が行われるように継承関係が作られる。
+
+- ruby2.0 で追加された
+- prepend されたモジュールは prepend した対象のクラスより先にメソッドの探索が行われるように継承関係が作られる。
 - [instance method Module#prepend](https://docs.ruby-lang.org/ja/2.0.0/method/Module/i/prepend.html)
+
 ```
 module Mod 1; end
 module Mod 2; end
@@ -36,7 +48,9 @@ end
 
 p Cls2.ancestors
 ```
-- prependで呼び出されたモジュール内でsuperを呼び出すと、元から定義されていたメソッドが呼び出される。
+
+- prepend で呼び出されたモジュール内で super を呼び出すと、元から定義されていたメソッドが呼び出される。
+
 ```
 module Mod
   def foo
@@ -57,7 +71,9 @@ Cls2.new.foo #=> Mod Cls1
 ```
 
 ## extend
+
 - モジュール内のメソッドをクラスメソッドとして取り込む
+
 ```
 module M
   def hoge
@@ -72,3 +88,18 @@ end
 A.hoge #=> hoge
 ```
 
+- これとか
+
+```
+ 1: module M
+ 2:  def foo
+ 3:   puts "foo"
+ 4:  end
+ 5: end
+ 6:
+ 7: class Foo
+ 8:  extend M
+ 9: end
+ 10:
+ 11: Foo.new.foo #→Foo.fooじゃないと呼べない
+```

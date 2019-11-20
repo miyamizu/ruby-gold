@@ -1,5 +1,11 @@
-require 'date'
-d1 = Time.new
-d2 = Time.new
-p(d2-d1).class #=>Rational
+class Example
+  def hoge
+    piyo
+  end
 
+  private
+  def piyo
+    puts "piyo"
+  end
+end
+Example.new.hoge
