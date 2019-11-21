@@ -1,5 +1,9 @@
 ## StringIO
 
+### 公式ドキュメント
+
+https://docs.ruby-lang.org/ja/latest/class/StringIO.html
+
 ### IO
 
 - IO と同じインターフェースをもつ

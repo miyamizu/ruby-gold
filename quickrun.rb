@@ -1,11 +1,10 @@
-class Example
-  def hoge
-    piyo
-  end
-
-  private
-  def piyo
-    puts "piyo"
+module M
+  def foo
+    puts Const
   end
 end
-Example.new.hoge
+class Foo
+  include M
+  Const = "foo"
+end
+Foo.new.foo #=> エラー
