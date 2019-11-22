@@ -1,10 +1,17 @@
-module M
-  def foo
-    puts Const
+class C
+  def self.m1
+    200
   end
 end
-class Foo
-  include M
-  Const = "foo"
+
+module R
+  refine C.singleton_class do
+    def m1
+      100
+    end
+  end
 end
-Foo.new.foo #=> エラー
+
+using R
+
+puts C.m1
