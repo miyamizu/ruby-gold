@@ -22,8 +22,9 @@ irb(main):001:0> 4/5
 => 0
 ```
 
-### Floatが含まれる演算
+### IntegerとFloatが含まれる演算
 ```
+Floatになる
 irb(main):002:0> 4.0/5
 => 0.8
 irb(main):004:0> 4/5.0
@@ -32,17 +33,19 @@ irb(main):004:0> 4/5.0
 
 ### IntegerとRationalの演算
 ```
-Rationalクラス(有理数を扱うNumericクラスのサブクラス)になるよirb(main):003:0> 4/5r
-=> (4/5)
-```
-
-### FloatとRationalの演算
-```
+Rationalクラス(有理数を扱うNumericクラスのサブクラス)になるよ
 irb(main):003:0> 4/5r
 => (4/5)
 
 to_fするとFloatクラスになるよ
 irb(main):005:0> 4/5r.to_f
+=> 0.8
+```
+
+### FloatとRationalの演算
+```
+Floatになる
+irb(main):003:0> 4.0/5r
 => 0.8
 ```
 
